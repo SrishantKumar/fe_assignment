@@ -1,22 +1,16 @@
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
 import DashboardNav from "@/components/layout/DashboardNav";
 
-export default async function DashboardLayout({
+export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession();
-
-  if (!session) {
-    redirect("/auth/signin");
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
       <DashboardNav />
-      <main className="container mx-auto px-4 py-8">{children}</main>
+      <main className="mx-auto max-w-7xl px-4 pt-20 pb-8 sm:px-6 lg:px-8">
+        {children}
+      </main>
     </div>
   );
 }
