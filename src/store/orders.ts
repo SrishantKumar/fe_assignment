@@ -75,7 +75,7 @@ function applyFilters(orders: PizzaOrder[], filters: OrderFilters): PizzaOrder[]
     if (filters.search) {
       const searchLower = filters.search.toLowerCase();
       const matchesSearch =
-        order.id.toLowerCase().includes(searchLower) ||
+        order.id.toString().toLowerCase().includes(searchLower) ||
         order.customerName.toLowerCase().includes(searchLower) ||
         order.pizzaType.toLowerCase().includes(searchLower);
       if (!matchesSearch) {
